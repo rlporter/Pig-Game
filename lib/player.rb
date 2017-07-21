@@ -51,20 +51,19 @@ end
 
 class FiftyPctHoldPlayer < Player
   def roll_again?
-    super && (@turn.rand > .5)
-  end
+    @count_rolls = count_rolls
+    super && @count_rolls.rand > 0.5
+    end
   end
 
 class TurnScoreTwentyPlayer < Player
   def roll_again?
     super && @turn_score = 20
-  end
+    end
   end
 
 class ThreeRollsPlayer < Player
   def roll_again?
-    super &&  @roll < 4
+    super &&  @count_rolls < 4
   end
-end
-
 end
